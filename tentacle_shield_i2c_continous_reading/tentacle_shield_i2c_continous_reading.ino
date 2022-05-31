@@ -59,8 +59,6 @@ void setup() {                      // startup function
     Wire.begin();                // enable I2C port.
 }
 
-
-
 void loop() {
 
     for (int channel = 0; channel < TOTAL_CIRCUITS; channel++) {       // loop through all the sensors

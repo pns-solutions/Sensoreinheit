@@ -8,6 +8,7 @@
 */
 
 #include <ArduinoMqttClient.h>
+#include "./tentacle_shield_i2c_continous_reading/tentacle_shield_i2c_continous_reading.ino"
 #if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_AVR_UNO_WIFI_REV2)
   #include <WiFiNINA.h>
 #elif defined(ARDUINO_SAMD_MKR1000)
@@ -92,7 +93,8 @@ void loop() {
   // to avoid having delays in loop, we'll use the strategy from BlinkWithoutDelay
   // see: File -> Examples -> 02.Digital -> BlinkWithoutDelay for more info
   unsigned long currentMillis = millis();
-  
+
+  test()
   if (currentMillis - previousMillis >= interval) {
     // save the last time a message was sent
     previousMillis = currentMillis;
