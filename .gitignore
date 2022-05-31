@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+/arduino_secrets.h
+/.idea/
+/cmake-build-debug/
