@@ -139,11 +139,10 @@ void loop() {
         Serial.print(channel_names[channel]);   // print channel name
         Serial.print(':');
 
-        // TODO: das ganze ist echt zu langsam. Aktuell laufen alle
         switch (code) {                          // switch case based on what the response code is.
             case 1:                               // decimal 1  means the command was successful.
                 Serial.println(sensordata);       // print the actual reading
-                strcpy(topic + strlen(topic), channel_name); //TODO: Bessere lösung?
+                strcpy(topic + strlen(topic), channel_name); 
 
                 mqttClient.beginMessage(topic);
                 mqttClient.print(sensordata);
@@ -165,51 +164,4 @@ void loop() {
         }
 
     } // for loop
-
-
-
-
-
-
-
-
-
-//    // to avoid having delays in loop, we'll use the strategy from BlinkWithoutDelay
-//    // see: File -> Examples -> 02.Digital -> BlinkWithoutDelay for more info
-//    unsigned long currentMillis = millis();
-//
-//
-//    if (currentMillis - previousMillis >= interval) {
-//        // save the last time a message was sent
-//        previousMillis = currentMillis;
-//
-//        Serial.println(sensor1);
-//        Serial.println(sensor2);
-//        Serial.println(sensor3);
-//        Serial.println(sensor4);
-//
-//
-//        // send message, the Print interface can be used to set the message contents
-//        mqttClient.beginMessage("tc1/sensor1");
-//        mqttClient.print(sensor1);
-//        mqttClient.endMessage();
-//
-//        // send message, the Print interface can be used to set the message contents
-//        mqttClient.beginMessage("tc1/sensor2");
-//        mqttClient.print(sensor2);
-//        mqttClient.endMessage();
-//
-//        // send message, the Print interface can be used to set the message contents
-//        mqttClient.beginMessage("tc1/sensor3");
-//        mqttClient.print(sensor3);
-//        mqttClient.endMessage();
-//
-//        // send message, the Print interface can be used to set the message contents
-//        mqttClient.beginMessage("tc1/sensor4");
-//        mqttClient.print(sensor4);
-//        mqttClient.endMessage();
-//
-//        Serial.println();
-//
-//    }
 }
